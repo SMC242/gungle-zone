@@ -10,8 +10,9 @@ export type IngredientIndex = {
   toppings: Ingredient[];
 };
 
-const getIngredients = async (): Promise<IngredientIndex> =>
-  JSON.parse(await fs.readFile("data/ingredients.json", "utf-8"));
+const ingredients: IngredientIndex = JSON.parse(
+  await fs.readFile("data/ingredients.json", "utf-8")
+);
 
 const randomNumber = (limit: number): number =>
   Math.floor(Math.random() * limit);
@@ -32,7 +33,6 @@ const chooseRange = <T>(n: number, minimum: number, xs: T[]): T[] =>
   chooseN(Math.max(randomNumber(n), minimum), xs);
 
 export async function GET(req: Request) {
-  const ingredients = await getIngredients();
   return NextResponse.json({
     ingredients: [
       ...chooseRange(4, 1, ingredients["alcohol"]),
