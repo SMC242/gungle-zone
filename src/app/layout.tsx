@@ -12,12 +12,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="bg-purple">
-      <body className=" text-red-600">
-        <header className="absolute top-0 left-0 flex w-full border border-gray-200">
-          <span className="text-yellow-400">Hello</span>
+    <html lang="en" className="bg-black text-white">
+      <body className="bg-gradient-to-br from-purple-900 to-yellow">
+        <header className="absolute top-0 left-0 flex w-full border p-3 border-slate-400 bg-green">
           <a href="/">
-            {/* <Image src="/logo.png" alt="Our logo" width={50} height={50} /> */}
+            <Image src="/logo.png" alt="Our logo" width={50} height={50} />
           </a>
         </header>
         {children}

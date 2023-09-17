@@ -8,11 +8,12 @@ async function RecipeCard() {
   });
   if (!res.ok) return <p>I forgor 💀</p>;
   const recipe: { ingredients: Ingredient[] } = await res.json();
+
   return (
     <div className="flex items-center justify-center h-screen">
       <div
         id="recipe-card"
-        className="p-6 bg-white border border-gray-200 rounded-lg shadow howver:bg-gray-100"
+        className="p-6 border border-gray-900 rounded-lg shadow hover:bg-gray-900 bg-zinc-900 h-3/5"
       >
         <ul className="m-6">
           {recipe["ingredients"].map((ingredient) => (
