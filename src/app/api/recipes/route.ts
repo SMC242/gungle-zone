@@ -1,18 +1,5 @@
-import { promises as fs } from "fs";
-import Request from "next";
 import { NextResponse } from "next/server";
-
-export type Ingredient = { name: string; quantity: string };
-export type IngredientIndex = {
-  alcohol: Ingredient[];
-  alcopops: Ingredient[];
-  mixers: Ingredient[];
-  toppings: Ingredient[];
-};
-
-const ingredients: IngredientIndex = JSON.parse(
-  await fs.readFile("public/data/ingredients.json", "utf-8")
-);
+import { INGREDIENTS } from "./ingredients";
 
 const randomNumber = (limit: number): number =>
   Math.floor(Math.random() * limit);
@@ -35,10 +22,10 @@ const chooseRange = <T>(n: number, minimum: number, xs: T[]): T[] =>
 export async function GET(req: Request) {
   return NextResponse.json({
     ingredients: [
-      ...chooseRange(4, 1, ingredients["alcohol"]),
-      ...chooseRange(2, 0, ingredients["alcopops"]),
-      ...chooseRange(2, 1, ingredients["mixers"]),
-      ...chooseRange(3, 0, ingredients["toppings"]),
+      ...chooseRange(4, 1, INGREDIENTS["alcohol"]),
+      ...chooseRange(2, 0, INGREDIENTS["alcopops"]),
+      ...chooseRange(2, 1, INGREDIENTS["mixers"]),
+      ...chooseRange(3, 0, INGREDIENTS["toppings"]),
     ],
   });
 }
