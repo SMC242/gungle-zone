@@ -1,4 +1,4 @@
-import { Ingredient } from "@/app/api/recipes/route";
+import { Ingredient } from "@/app/api/recipes/ingredients";
 import Loading from "@/app/loading";
 import Card from "@/components/cards/Card";
 import { Suspense } from "react";
