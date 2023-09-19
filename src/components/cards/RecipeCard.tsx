@@ -4,7 +4,7 @@ import Card from "@/components/cards/Card";
 import { Suspense } from "react";
 
 async function RecipeItems() {
-  const res = await fetch("http://localhost:3000/api/recipes/", {
+  const res = await fetch(process.env.BASE_URL + "/api/recipes/", {
     next: { revalidate: 60 },
   });
   if (!res.ok) return <p>I forgor 💀</p>;
