@@ -11,7 +11,7 @@ export type IngredientIndex = {
 };
 
 const ingredients: IngredientIndex = JSON.parse(
-  await fs.readFile("data/ingredients.json", "utf-8")
+  await fs.readFile("public/data/ingredients.json", "utf-8")
 );
 
 const randomNumber = (limit: number): number =>
